@@ -24,15 +24,6 @@ mod genesisgain {
     impl Genesisgain {
         #[ink(constructor)]
         pub fn new(content: ink_prelude::vec::Vec<u8>, owner: AccountId,doner:ink_prelude::vec::Vec<(AccountId,Balance)>) -> Self {
-        /*        let mut my_map: Mapping<ink::primitives::AccountId,ink_prelude::vec::Vec<u8>, ink::storage::traits::ResolverKey<ink::storage::traits::AutoKey, ink::storage::traits::ManualKey<1994045837>>> = Mapping::default();
-                let caller = Self::env().caller();
-                my_map.insert(&caller,&content);
-               let mut my_map2: Mapping<ink::primitives::AccountId, ink_prelude::vec::Vec<(AccountId,Balance)>, ink::storage::traits::ResolverKey<ink::storage::traits::AutoKey, ink::storage::traits::ManualKey<3997244855>>> = Mapping::default();
-                my_map2.insert(&caller, &doner);
-            Self {
-                posts:my_map,
-                doners:my_map2,
-            }*/
             Default::default()
         }
 
