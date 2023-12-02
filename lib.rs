@@ -27,6 +27,18 @@ mod genesisgain {
             Default::default()
         }
 
+       /*#[ink(message)]
+        pub fn post_content(&mut self, new_content: ink_prelude::vec::Vec<u8>) {
+            let account_id = self.env().caller();
+            let mut posts = match self.posts.get(&account_id) {
+                Some(existing_posts) => existing_posts.clone(),
+                None => ink_prelude::vec::Vec::new(),
+            };
+            posts.extend(new_content);
+            self.posts.insert(account_id, &posts);
+        }*/
+
+
         #[ink(message)]
         pub fn donate(&mut self, amount: Balance, post_owner: AccountId) {
             let mut donerList = match self.doners.get(&post_owner) {
@@ -40,6 +52,16 @@ mod genesisgain {
                     message: AccountId::from(post_owner),
                 });
         }
+
+        
+         /*   #[ink(message)]
+            pub fn get_random_post(&mut self,post_owner: AccountId) -> Option<(
+                ink_prelude::vec::Vec<u8>
+            )> {
+                let post_list = self.posts.get(post_owner).expect("No Post till now");
+                Some((post_list))
+        }
+*/
 
         #[ink(message)]
         pub fn get_doner_list(&mut self,post_owner: AccountId) -> Option<(
